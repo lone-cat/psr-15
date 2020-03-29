@@ -1,0 +1,38 @@
+{
+  "name": "lonecat/psr15",
+  "description": "My PSR-15 implementation",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Alex Melentev",
+      "email": "alex@melentev.net"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "LoneCat\\PSR15\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "LoneCat\\Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "require": {
+    "php": ">=7.4",
+    "ext-mbstring": "*",
+    "psr/container": "*",
+    "psr/http-server-middleware": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*",
+    "lonecat/psr7": "*"
+  },
+  "scripts": {
+    "test": "phpunit --colors=always"
+  }
+}
