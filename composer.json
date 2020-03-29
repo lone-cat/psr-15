@@ -24,7 +24,6 @@
   },
   "require": {
     "php": ">=7.4",
-    "ext-mbstring": "*",
     "psr/container": "*",
     "psr/http-server-middleware": "*"
   },
