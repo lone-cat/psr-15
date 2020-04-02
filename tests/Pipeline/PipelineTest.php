@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use LoneCat\PSR15\Resolver\MiddlewareResolver;
+use LoneCat\PSR15\Resolver\SimpleMiddlewareResolver;
 
 class contr implements RequestHandlerInterface {
 
@@ -51,7 +51,7 @@ class HeadersTest extends TestCase
 {
     public function testConstructor(): void
     {
-        $resolver = new MiddlewareResolver(new cont);
+        $resolver = new SimpleMiddlewareResolver();
         $pipeline = new Pipeline($resolver);
         $pipeline->middleware(new middlw);
         $pipeline->middleware('test');

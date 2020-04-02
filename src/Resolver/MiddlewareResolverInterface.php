@@ -7,6 +7,6 @@ use Psr\Http\Server\MiddlewareInterface;
 interface MiddlewareResolverInterface
 {
 
-    public function resolve($mw_identifier): MiddlewareInterface;
+    public function resolve($middleware): MiddlewareInterface;
 
 }

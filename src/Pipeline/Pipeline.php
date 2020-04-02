@@ -6,7 +6,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use LoneCat\PSR15\Resolver\MiddlewareResolver;
+use LoneCat\PSR15\Resolver\SimpleMiddlewareResolver;
 use LoneCat\PSR15\Resolver\MiddlewareResolverInterface;
 
 class Pipeline
@@ -18,7 +18,7 @@ class Pipeline
 
     public function __construct(?MiddlewareResolverInterface $resolver = null)
     {
-        $this->resolver = $resolver ?? new MiddlewareResolver();
+        $this->resolver = $resolver ?? new SimpleMiddlewareResolver();
     }
 
     public function middleware($middleware): self
