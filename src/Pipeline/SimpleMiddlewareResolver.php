@@ -1,6 +1,6 @@
 <?php
 
-namespace LoneCat\PSR15\Resolver;
+namespace LoneCat\PSR15\Pipeline;
 
 use Exception;
 use Psr\Http\Server\MiddlewareInterface;

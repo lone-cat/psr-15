@@ -1,6 +1,6 @@
 <?php
 
-namespace LoneCat\PSR15\Resolver;
+namespace LoneCat\PSR15\Pipeline;
 
 use Psr\Http\Server\MiddlewareInterface;
 
