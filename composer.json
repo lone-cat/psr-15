@@ -28,7 +28,8 @@
   },
   "require-dev": {
     "phpunit/phpunit": "*",
-    "lonecat/psr7": "*"
+    "lonecat/psr7": "*",
+    "lonecat/docker-unit": "*"
   },
   "scripts": {
     "test": "phpunit --colors=always"
