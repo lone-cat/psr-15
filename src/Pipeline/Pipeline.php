@@ -12,11 +12,11 @@ class Pipeline
 {
 
     protected array $queue = [];
-    protected ?MiddlewareResolverInterface $resolver = null;
+    protected MiddlewareResolverInterface $resolver;
 
-    public function __construct(?MiddlewareResolverInterface $resolver = null)
+    public function __construct(MiddlewareResolverInterface $resolver)
     {
-        $this->resolver = $resolver ?? new SimpleMiddlewareResolver();
+        $this->resolver = $resolver;
     }
 
     public function middleware($middleware): self
@@ -29,6 +29,6 @@ class Pipeline
                             RequestHandlerInterface $handler): ResponseInterface
     {
         $queue = new MiddlewareQueue($this->queue, $handler, $this->resolver);
-        return $queue->handle($request->withAttribute('queue', $queue));
+        return $queue->handle($request);
     }
 }

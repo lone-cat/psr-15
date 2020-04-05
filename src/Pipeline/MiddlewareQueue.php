@@ -2,7 +2,6 @@
 
 namespace LoneCat\PSR15\Pipeline;
 
-use Exception;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -14,9 +13,9 @@ class MiddlewareQueue
 
     protected array $middleware_queue = [];
     protected RequestHandlerInterface $default_handler;
-    protected ?MiddlewareResolverInterface $resolver = null;
+    protected MiddlewareResolverInterface $resolver;
 
-    public function __construct(array $middleware_queue, RequestHandlerInterface $default_handler, ?MiddlewareResolverInterface $resolver = null)
+    public function __construct(array $middleware_queue, RequestHandlerInterface $default_handler, MiddlewareResolverInterface $resolver)
     {
         $this->middleware_queue = $middleware_queue;
         $this->default_handler = $default_handler;
@@ -37,10 +36,6 @@ class MiddlewareQueue
     protected function getHandler($middleware): MiddlewareInterface
     {
         if ($middleware instanceof MiddlewareInterface) return $middleware;
-
-        if (!$this->resolver) {
-            throw new Exception('Class passed to pipeline is not middleware and cannot be resolved');
-        }
 
         return $this->resolver->resolve($middleware);
     }
