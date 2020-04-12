@@ -2,18 +2,16 @@
 
 namespace Tests\Pipeline;
 
-use LoneCat\PSR15\Pipeline\Pipeline;
+use LoneCat\PSR15\Pipeline;
 use PHPUnit\Framework\TestCase;
-use Psr\Http\Server\MiddlewareInterface;
-use Psr\Http\Server\RequestHandlerInterface;
-use LoneCat\PSR15\Pipeline\SimpleMiddlewareResolver;
+
+
 
 
 class PipelineTest extends TestCase
 {
     public function testConstructor(): void
     {
-        $resolver = new SimpleMiddlewareResolver();
         $pipeline = new Pipeline();
         //$pipeline->middleware('test');
         //$pipeline->middleware(function () {return true;});
